@@ -1,17 +1,6 @@
 {
     "name": "Cew",
     "autor": "Dert98",
-    "type": "project manager",
-    "description": "",
-    "keywords": [
-        "Framework",
-        "Cew",
-        "Vuejs",
-        "Json",
-        "Ajax",
-        "Sqlsi",
-        "Php"
-    ],
     "productos": {
         "producto1": {
             "src": [
