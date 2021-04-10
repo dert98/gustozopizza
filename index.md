@@ -1,37 +1,77 @@
-## Welcome to GitHub Pages
+<!DOCTYPE html>
+<html lang="en">
 
-You can use the [editor on GitHub](https://github.com/dert98/gustozopizza/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://dert98.github.io/Porfolio/global.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+<body>
+    <header>
+    </header>
+    <main id="app">
+        <div class="m-4 text-center m-auto">
+            <label class="h1">{{list['name']}}</label>
+        </div>
+            <?php include ("home.php") ?>
+        <div>
+            <div class="container text-center m-auto">
+                <div class="text-center">
+                    <div class="m-4">
+                        <label class="h1">Productos</label>
+                    </div>
+                    <label for="" class="h2 bb3">Empanadas</label>
+                    <div class="col-md-12 row">
+                        <div v-for="producto in list['empanadas']" class="col-md-3 mb-4">
+                            <p>
+                                <img v-bind:src="producto['src']" class="w200 h200 img-thumbnail" alt="">
+                            </p>
+                            <p>
+                                <label for="" class="">{{producto['nombre']}}</label>
+                            </p>
+                            <p>
+                                <label for="" class="" v-if="">{{producto['precio']}}</label>
+                            </p>
+                            <p class="text-streng">
+                                <a href="" class="btn btn-success">comprar</a>
+                            </p>
+                        </div>
+                    </div>
+                    <label for="" class="h2 bb3">Pizzas</label>
+                    <div class="col-md-12 row">
+                        <div v-for="producto in list['pizzas']" class="col-md-3 mb-4">
+                            <p>
+                                <img v-bind:src="producto['src']" class="w200 h200 img-thumbnail" alt="">
+                            </p>
+                            <p>
+                                <label for="" class="">{{producto['nombre']}}</label>
+                            </p>
+                            <p>
+                                <label for="" class="" v-if="">{{producto['precio']}}</label>
+                            </p>
+                            <p class="text-streng">
+                                <a href="" class="btn btn-success">comprar</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <?php include ("footer.php") ?>
+    <script src="js/app.js"></script>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/dert98/gustozopizza/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+</html>
