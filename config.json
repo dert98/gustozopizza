@@ -1,0 +1,84 @@
+{
+    "name": "Cew",
+    "autor": "Dert98",
+    "type": "project manager",
+    "description": "",
+    "keywords": ["Framework","Cew","Vuejs","Json","Ajax","Sqlsi","Php"],
+    "productos":{
+        "producto": {
+            "src":["https://images.deliveryhero.io/image/pedidosya/products/75d3c6d4-d324-41f0-aefe-366a465c621f.jpg?quality=80&amp;width=200&amp;height=150"],
+            "nombre":"Pizza muzzarella con jamón",
+            "preci": "$570"
+        },
+        "producto": {
+            "src":["https://images.deliveryhero.io/image/pedidosya/products/e3a3f7fa-6bed-4602-8deb-36d7d714c220.jpg?quality=80&amp;width=200&amp;height=150"],
+            "nombre":"Empanada de pollo",
+            "precio": "$100"
+        },
+        "producto": {
+            "src":["https://images.deliveryhero.io/image/pedidosya/products/b8d5f97e-33d3-416b-841e-a88076173890.jpg?quality=80&amp;width=200&amp;height=150"],
+            "nombre":"Empanada de jamón y queso",
+            "precio": "$100"
+        },
+        "producto": {
+            "src":["https://images.deliveryhero.io/image/pedidosya/products/cc1e3428-93e6-4558-83fb-9787c54bdf2f.jpg?quality=80&amp;width=200&amp;height=150"],
+            "nombre":"Empanada de queso y cebolla",
+            "precio": "$100"
+        },
+        "producto": {
+            "src":["https://images.deliveryhero.io/image/pedidosya/products/0935e4bd-1f66-4fad-a104-28f51a4354b2.jpg?quality=80&amp;width=200&amp;height=150"],
+            "nombre":"Empanada capresse",
+            "precio": "$100"
+        },
+        "producto": {
+            "src":["https://images.deliveryhero.io/image/pedidosya/products/047d67cf-6216-49cb-b279-bae2d49a854b.jpg?quality=80&amp;width=200&amp;height=150"],
+            "nombre":"Empanada de verduras",
+            "precio": "$100"
+        },
+        "producto": {
+            "src":["https://images.deliveryhero.io/image/pedidosya/products/e256ed04-f329-4029-bfaf-f82ca47512a6.jpg?quality=80&amp;width=200&amp;height=150"],
+            "nombre":"Empanada de carne",
+            "precio": "$100"
+        },
+        "producto": {
+            "src":["https://images.deliveryhero.io/image/pedidosya/products/bfc1aab5-b0d2-43b0-876b-1adb48930334.jpg?quality=80&amp;width=200&amp;height=150"],
+            "nombre":"Empanada de humita",
+            "precio": "$100"
+        },
+        "producto": {
+            "src":["https://images.deliveryhero.io/image/pedidosya/products/c3051dbd-bf32-47dc-b487-ae8f3fafde88.jpg?quality=80&amp;width=200&amp;height=150"],
+            "nombre":"Empanada de carne a cuchillo",
+            "precio": "$100"
+        },
+        "producto": {
+            "src":["https://images.deliveryhero.io/image/pedidosya/products/f52409d1-864e-476c-a628-7e3e818a3e28.jpg?quality=80&amp;width=200&amp;height=150"],
+            "nombre":"Pizza muzzarella",
+            "precio": "$460"
+        },
+        "producto": {
+            "src":["https://images.deliveryhero.io/image/pedidosya/products/fc3f9beb-3ea8-4607-939d-ac1760053b21.jpg?quality=80&amp;width=200&amp;height=150"],
+            "nombre":"Pizza muzzarella con palmitos",
+            "precio": "$600"
+        },
+        "producto": {
+            "src":["https://images.deliveryhero.io/image/pedidosya/products/93428fdd-bec4-4974-b088-75976c9d5c65.jpg?quality=80&amp;width=200&amp;height=150"],
+            "nombre":"Empanada de queso roquefort",
+            "precio": "$115"
+        },
+        "producto": {
+            "src":["https://images.deliveryhero.io/image/pedidosya/products/b9cbda00-e673-443c-ac8d-e9f6e682454f.jpg?quality=80&amp;width=200&amp;height=150"],
+            "nombre":"Pizza muzzarella con jamón y morrón",
+            "precio": "$620"
+        },
+        "producto": {
+            "src":["https://images.deliveryhero.io/image/pedidosya/products/6bec1cde-5419-4d33-a3df-fbaf18ebf223.jpg?quality=80&amp;width=200&amp;height=150"],
+            "nombre":"Pizza napolitana",
+            "precio": "$570"
+        },
+        "producto": {
+            "src":["https://images.deliveryhero.io/image/pedidosya/products/93f617c5-62d1-40e9-b354-f4d1ed01fba6.jpg?quality=80&amp;width=200&amp;height=150"],
+            "nombre":"Pizza calabresa",
+            "precio": "$620"
+        }
+    }
+}
