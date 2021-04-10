@@ -19,6 +19,7 @@
         <div class="m-4 text-center m-auto">
             <label class="h1">{{list['name']}}</label>
         </div>
+            <?php include ("home.php") ?>
         <div>
             <div class="container text-center m-auto">
                 <div class="text-center">
@@ -49,6 +50,7 @@
             </div>
         </div>
     </main>
+    <?php include ("footer.php") ?>
     <script src="js/app.js"></script>
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
