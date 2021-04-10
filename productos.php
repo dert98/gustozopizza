@@ -1,11 +1,12 @@
 <section id="app">
     <div class="container text-center m-auto">
         <div class="text-center">
+            {{list}}
             <div class="m-4">
                 <label class="h1">{{list['name']}}</label>
             </div>
             <div class="col-md-12 row">
-                <div v-for="producto in list['list']" class="col-md-6 mb-4">
+                <div v-for="producto in list['productos']" class="col-md-6 mb-4">
                     <p>
                         <img v-bind:src="img['src']" class="cp2 b4" alt="">
                     </p>

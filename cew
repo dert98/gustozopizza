@@ -1,0 +1,593 @@
+<!-- ------------------**********------------------>
+  ____            _     ____       _
+ |  _ \  ___ _ __| |_  |  _ \ _ __(_)_   _____ _ __
+ | | | |/ _ \ '__| __| | | | | '__| \ \ / / _ \ '__|
+ | |_| |  __/ |  | |_  | |_| | |  | |\ V /  __/ |
+ |____/ \___|_|   \__| |____/|_|  |_| \_/ \___|_|
+<!-- ------------------**********------------------>
+<!-- ------- TU Carpeta
+------- index.php
+------- /auth
+------- /css
+------- /img
+------- /js
+------- /sections
+---------  |about.php
+---------  |contact.php
+---------  |home.php
+---------  |footer.php
+---------  |navbar.php
+---------  |services.php
+------- /php
+---------  |about.php
+---------  |contact.php
+---------  |home.php
+---------  |footer.php
+---------  |navbar.php
+---------  |services.php
+<?php
+    $config = file_get_contents("config.json");
+    $config = json_decode($config, true);
+    if (isset($config) && is_array($config)) {
+            if(isset($config['carpetas']) && $config['carpetas'] != ""){
+                /// Creo carpetas principales
+                $carpetas = $config['carpetas'];
+                foreach ($carpetas as $carpeta) {
+                    if(!mkdir($carpeta, 0777, true)) { 
+                        print('Carpeta '.$carpeta.' ya existe');
+                    }else{
+                        print('Carpeta '.$carpeta.' creada');
+                    }
+                }             
+            }
+    }
+    /// Creo carpertas en la carperta Sections
+    if(isset($config['secciones']) && $config['secciones'] != ""){
+      $secciones = $config['secciones'];
+      foreach ($secciones as $section) {
+          $arc = "sections/".$section.".php";
+          $arc2 = "php/".$section.".php";
+          fopen($arc2,"w+b");
+          $archivo = fopen($arc,"w+b");
+          if( $archivo == false ) {
+              echo "Error al crear el archivo";
+          }
+          else
+          {
+              fwrite($archivo, "<section id='$section'>\r\n");
+              fwrite($archivo, "<div class='bg1'><h1>$section</h1></div>\r\n");
+              fwrite($archivo, "Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae blanditiis rem officia illum pariatur, possimus veniam dolores atque. Impedit velit, odit non reiciendis quasi nisi beatae? Quas amet itaque hic veritatis consequatur magni. Nemo odio ratione earum officia. Temporibus doloremque impedit ullam odit delectus voluptates labore minus unde esse totam omnis iure, perferendis fugiat a laborum aliquam consequuntur ducimus nostrum dolorum cum, amet dignissimos et qui! In provident asperiores sed ipsum, explicabo vero quos nam doloremque ea beatae quae maxime eum aliquid odit dolorem delectus architecto officia esse? Nam id ipsum pariatur, commodi quos laboriosam! Magnam vel voluptas illo sunt.\r\n");
+              fwrite($archivo, "</section>\r\n");
+              fflush($archivo);
+          }
+          fclose($archivo);  
+        }
+    }
+    /// creo el reportes/reporte.txt
+    $archivo = "reportes/reporte.php";
+    $archivo = fopen($archivo,"w+b");
+        if( $archivo == false ) {
+            echo "Error al crear el archivo";
+        }
+        else
+        {
+            fwrite($archivo, '<?php');
+            fwrite($archivo, "\r\n");
+            fwrite($archivo, '$arch = "reportes/reporte.txt";');
+            fwrite($archivo, "\r\n");
+            fwrite($archivo, '$hoy=date(DATE_RFC2822);');
+            fwrite($archivo, "\r\n");
+            fwrite($archivo, '$archivo=fopen($arch,"a");');
+            fwrite($archivo, "\r\n");
+            fwrite($archivo, 'fwrite($archivo,"se actualizo a la hora: $hoy");');
+            fwrite($archivo, "\r\n");
+            fwrite($archivo, 'fwrite($archivo,"\r\n");');
+            fwrite($archivo, "\r\n");
+            fwrite($archivo, 'fclose($archivo);');
+            fwrite($archivo, "\r\n");
+            fwrite($archivo, "?>");
+            fflush($archivo);
+        }
+        fclose($archivo);
+
+    /// creo el navbar ////
+    $archivo = fopen("sections/navbar.php","w+b");
+    if( $archivo == false ) {
+        echo "Error al crear el archivo";
+    }
+    else
+    {
+        fwrite($archivo, '<section id="navbar">
+    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav mx-auto mt-2 mt-lg-0">');
+        fwrite($archivo, "\r\n");
+        $secciones = $config['secciones'];
+        foreach ($secciones as $section){
+            fwrite($archivo, '<li class="nav-item"><a class="nav-link h2" href="#'.$section.'">'.$section.'</a></li>');
+            fwrite($archivo, "\r\n");
+        }
+        fwrite($archivo, '</ul>
+                </div>
+            </nav>
+        </section>');
+        fflush($archivo);
+    }
+    fclose($archivo);
+    /// creo el footer ////
+    $section = "sections/footer.php";
+    $archivo = fopen($section,"w+b");
+    if( $archivo == false ) {
+        echo "Error al crear el archivo";
+    }
+    else
+    {
+        $section = substr($section, 9, strlen($section) - 5);
+        $section = substr($section, 0, strlen($section) - 5);
+        fwrite($archivo, "<section id='$section' class='text-center bg1'>\r\n");
+        fwrite($archivo, "  <p>Created by: Dert Driver</p>Contact me !
+        <a href='https://www.facebook.com/dert.driver' target='_blank'><i class='fa fa-facebook'></i></a>
+        <a href='https://www.instagram.com/dert98/?hl=es-la' target='_blank'><i class='fa fa-instagram'></i></a>
+        <a href='https://github.com/dert98' target='_blank'><i class='fa fa-github-square'></i></a>
+        <a href='mailto:dertdriver@gmail.com' target='_blank'><i class='fa fa-envelope-square'></i></a>\r\n");
+        fwrite($archivo, "</section>\r\n");
+        fflush($archivo);
+    }
+    fclose($archivo); 
+    mkdir("auth", 0777, true);
+    ///// Crea archivo index.php ////
+    $archivo = fopen('index.php',"w+b");
+    if( $archivo == false ) {
+        echo "Error al crear el archivo";
+    }
+    else{
+        fwrite($archivo, '<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+<link rel="icon" type="image/svg" href="img/icon.svg" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous"><link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://dert98.github.io/Porfolio/global.css">
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body >
+<?php include("reportes/reporte.php"); ?>
+<header>
+  <?php include("sections/navbar.php"); ?>
+</header>
+<main id="root">
+    <?php include("sections/home.php"); ?>
+    <?php include("sections/contact.php"); ?>
+    <?php include("sections/about.php"); ?>
+    <?php include("sections/services.php"); ?>
+</main>
+<footer>
+  <?php include("sections/footer.php") ?>
+</footer>
+<script src="js/app.js"></script>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>');
+        fflush($archivo);
+    }
+    fclose($archivo);
+    print("Sistema de carpetas creado");
+    // crea login y actualiza el navbar
+$archivo = "auth/adminlog.php";
+$archivo = fopen($archivo,"w+b");
+fwrite($archivo, '
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://dert98.github.io/Porfolio/global.css">
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<title>Admin</title>
+</head>
+<body>
+  <section id="services">
+    <div id="root">
+      <div class="p-4">
+        <div class="container p-5">
+          <div class="titulo">
+            <label for="" class="h1">Admin con Vuejs</label>
+          </div>
+          <div class="row">
+            <div class="alert alert-danger col-md-6" id="alertMessage" role="alert" v-if="errorMessage">
+              {{ errorMessage }}
+            </div>
+            <div class="alert alert-success col-md-6" id="alertMessage" role="alert" v-if="successMessage">
+              {{ successMessage }}
+            </div>
+            <div>
+              <p class="btn btn-secondary" @click="showingaddModal = true">Agregar usuario</p>
+            </div>
+            <table class="table table-striped">
+              <thead class="thead-dark">
+                <tr>
+                  <th>ID</th>
+                  <th>Nombre</th>
+                  <th>Apellido</th>
+                  <th>Email</th>
+                  <th>Edit</th>
+                  <th>Delete</th>
+                </tr>
+              </thead>
+              <tbody class="tbody-custom">
+                <tr v-for="usuario in usuarios">
+                  <td>{{usuario.id}}</td>
+                  <td>{{usuario.firstname}}</td>
+                  <td>{{usuario.lastname}}</td>
+                  <td>{{usuario.email}}</td>
+                  <td><button @click="showingeditModal = true; selectusuario(usuario);"
+                      class="btn btn-warning">Edit</button></td>
+                  <td><button @click="showingdeleteModal = true; selectusuario(usuario);"
+                      class="btn btn-danger">Delete</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="../js/app.js"></script>
+</body>
+</html>
+    ');
+fflush($archivo);
+fclose($archivo);
+$archivo = 'auth/cerrar.php';
+$archivo = fopen($archivo,"w+b");
+fwrite($archivo, '
+<?php
+  if (isset($_SESSION)) {
+    $_SESSION = array();
+    if (ini_get("session.use_cookies")) {
+      $params = session_get_cookie_params();
+      setcookie(session_name(), "", time() - 42000,
+      $params["path"], $params["domain"],
+      $params["secure"], $params["httponly"]);
+    }
+}
+session_start();
+unset($_SESSION["usuario"]);
+unset($_SESSION["password"]);
+session_destroy();
+session_unset();
+header("Location: ../index.php");
+?>
+    ');
+fflush($archivo);
+fclose($archivo);
+$archivo = "auth/crearUsuarios.php";
+$archivo = fopen($archivo,"w+b");
+fwrite($archivo, '<?php
+    $config = file_get_contents("../config.json");
+    $config = json_decode($config, true);
+    $link = mysqli_connect("localhost","root","");
+    $sql = "CREATE DATABASE ".$config["db_name"];
+    $result	= mysqli_query($link,$sql); 
+    include("../dbml.php");
+    $dbml = new dbManager("midb","id");
+    $sql = "CREATE TABLE usuarios (
+    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    firstname VARCHAR(30) NOT NULL,
+    lastname VARCHAR(30) NOT NULL,
+    email VARCHAR(50),
+    reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    )";
+    $dbml->qy($sql);
+    $dbml = new dbManager("usuarios","id");
+    $dbml->insert("dert","Dert","Driver","dertdriver@hotmail.com");
+    $dbml->save();
+    $dbml->insert("edu","Edu","edumo","dertd@hotmail.com");
+    $dbml->save();
+    $dbml->insert("mariano","Mariano","maca","dertc@hotmail.com");
+    $dbml->save();
+?>');
+fflush($archivo);
+fclose($archivo);
+$archivo = "auth/validar.php";
+$archivo = fopen($archivo,"w+b");
+fwrite($archivo, '
+    <?php
+  $u = $_POST["usuario"];
+  $p = $_POST["password"];
+  include("../dbml.php");
+  $dbml = new dbManager("usuarios","id");
+  $data = $dbml->buscarUsuario($u);
+  if ($data->num_rows == 1) {
+    session_start();
+    $_SESSION["usuario"] = $u;
+    $_SESSION["password"] = $p;
+    $dbml->close();
+    echo "asd";
+    header("Location: ../index.php");
+  }else{
+    header("Location: ../sections/login.php");
+}
+  exit();
+?>
+    ');
+fflush($archivo);
+fclose($archivo);
+$archivo = "sections/login.php";
+$archivo = fopen($archivo,"w+b");
+fwrite($archivo, '
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://dert98.github.io/Porfolio/global.css">
+</head>
+
+<body>
+  <div class="text-center mt-3">
+    <label for="" class="h1 bb3">Iniciar Seccion</label>
+  </div>
+  <section id="login" class="f2 cp1">
+    <div class="container col-md-12 text-center m-auto mt-5">
+      <div class="col-md-6 col-lg-6 col-xs-6 text-center m-auto img-thumbnail">
+        <form _ngcontent-c0="" novalidate="" class="p-2 m-2 bg1" action="../auth/validar.php" method="POST">
+          <img src="../img/m.png" alt="" class="cp1 w200 h200 b1 rounded-circle">
+          <div _ngcontent-c0="" class="inputGroup inputGroup1 m-3">
+            <label _ngcontent-c0="" for="usuario" class="h3">Usuario</label>
+            <input _ngcontent-c0="" class="usuario ng-untouched ng-pristine ng-invalid" id="usuario" maxlength="256"
+              name="usuario" required="" type="text">
+            <span _ngcontent-c0="" class="indicator"></span>
+          </div>
+          <div _ngcontent-c0="" class="inputGroup inputGroup2 m-3">
+            <label _ngcontent-c0="" for="password" class="h3">Password</label>
+            <input _ngcontent-c0="" class="password ng-untouched ng-pristine ng-invalid" id="password" name="password"
+              required="" type="password">
+          </div>
+          <div _ngcontent-c0="" class="">
+            <button class="btn btn-success">Log in</button>
+            <a href="" class="btn btn-success">Regresar</a>
+          </div>
+        </form>
+      </div>
+    </div>
+    </div>
+  </section>
+</body>
+    ');
+fflush($archivo);
+fclose($archivo);
+$archivo = "js/app.js";
+$archivo = fopen($archivo,"w+b");
+fwrite($archivo, 'var app = new Vue({
+  el: "#root",
+  data: {
+    list: null,
+    usuarios: []
+  },
+  
+  mounted: function () {
+    this.getAllusuarios();
+    this.getUsers();
+  },
+  
+  methods: {
+      getAllusuarios: function () {
+        axios.get("../php/api.php?action=read")
+        .then(function (response) {
+          if (response.data.error) {
+            app.errorMessage = response.data.message;
+          } else {
+            app.usuarios = response.data.usuarios;
+            app.filtrados = response.data.usuarios;
+          }
+        })
+    },
+    getUsers: function() {
+			var lista = this;
+			axios.get("./config.json").then(function(response) {
+				lista.list = response.data;
+			}, function(error) {
+				console.log(error.statusText);
+			});
+		}
+  },
+  computed: {
+      getTotalusuarios: function () {
+        return this.Usuarios.length;
+      },
+  
+      UsuariosVacio: function () {			
+        return this.getTotalUsuarios == 0;
+      },
+  
+      busqueda: function () {
+          return this.filtrados.filter((item) => item.busqueda.includes(this.busqueda));
+      }
+  
+    },
+  })
+    ');
+fflush($archivo);
+fclose($archivo);
+///// creo error 4444
+$archivo = "sections/error404.php";
+$archivo = fopen($archivo,"w+b");
+fwrite($archivo, '<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous"><link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://dert98.github.io/Porfolio/global.css"></head>
+    <title>Error 404</title>
+</head>
+<body class="" style="background: rgba(0,0,0,1);
+background: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(217,214,217,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,0,0,1)), color-stop(100%, rgba(217,214,217,1)));
+background: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(217,214,217,1) 100%);
+background: -o-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(217,214,217,1) 100%);
+background: -ms-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(217,214,217,1) 100%);
+background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(217,214,217,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=\'#000000\', endColorstr=\'#d9d6d9\', GradientType=0 )">
+<div class="background">
+	<div class="ground"></div>
+</div>
+<div class="container">
+	<div class="col-md-12 row">
+		<div class="col-md-6">
+			<div class="inner-content mt-5">
+			<h1 class="text-light h1">" ERROR 404 "</h1>
+			<p class="text-light h2 mt-4">Looks like the page you were looking for is no longer here.</p>
+		</div>
+	</div>
+	<div class="col-md-6 w500">
+		<svg class="svgimg" xmlns="http://www.w3.org/2000/svg" viewBox="51.5 -15.288 385 505.565">
+		<g class="bench-legs">
+			<path d="M202.778,391.666h11.111v98.611h-11.111V391.666z M370.833,390.277h11.111v100h-11.111V390.277z M183.333,456.944h11.111
+          v33.333h-11.111V456.944z M393.056,456.944h11.111v33.333h-11.111V456.944z" />
+			</g>
+			<g class="top-bench">
+				<path d="M396.527,397.917c0,1.534-1.243,2.777-2.777,2.777H190.972c-1.534,0-2.778-1.243-2.778-2.777v-8.333
+				c0-1.535,1.244-2.778,2.778-2.778H393.75c1.534,0,2.777,1.243,2.777,2.778V397.917z M400.694,414.583
+          c0,1.534-1.243,2.778-2.777,2.778H188.194c-1.534,0-2.778-1.244-2.778-2.778v-8.333c0-1.534,1.244-2.777,2.778-2.777h209.723
+          c1.534,0,2.777,1.243,2.777,2.777V414.583z M403.473,431.25c0,1.534-1.244,2.777-2.778,2.777H184.028
+          c-1.534,0-2.778-1.243-2.778-2.777v-8.333c0-1.534,1.244-2.778,2.778-2.778h216.667c1.534,0,2.778,1.244,2.778,2.778V431.25z" />
+		</g>
+			<g class="bottom-bench">
+				<path d="M417.361,459.027c0,0.769-1.244,1.39-2.778,1.39H170.139c-1.533,0-2.777-0.621-2.777-1.39v-4.86
+          c0-0.769,1.244-0.694,2.777-0.694h244.444c1.534,0,2.778-0.074,2.778,0.694V459.027z" />
+		  <path d="M185.417,443.75H400c0,0,18.143,9.721,17.361,10.417l-250-0.696C167.303,451.65,185.417,443.75,185.417,443.75z" />
+			</g>
+			<g id="lamp">
+				<path class="lamp-details" d="M125.694,421.997c0,1.257-0.73,3.697-1.633,3.697H113.44c-0.903,0-1.633-2.44-1.633-3.697V84.917
+				c0-1.257,0.73-2.278,1.633-2.278h10.621c0.903,0,1.633,1.02,1.633,2.278V421.997z" />
+				<path class="lamp-accent" d="M128.472,93.75c0,1.534-1.244,2.778-2.778,2.778h-13.889c-1.534,0-2.778-1.244-2.778-2.778V79.861
+				c0-1.534,1.244-2.778,2.778-2.778h13.889c1.534,0,2.778,1.244,2.778,2.778V93.75z" />
+
+				<circle class="lamp-light" cx="119.676" cy="44.22" r="40.51" />
+				<path class="lamp-details" d="M149.306,71.528c0,3.242-13.37,13.889-29.861,13.889S89.583,75.232,89.583,71.528c0-4.166,13.369-13.889,29.861-13.889
+				S149.306,67.362,149.306,71.528z" />
+				<radialGradient class="light-gradient" id="SVGID_1_" cx="119.676" cy="44.22" r="65" gradientUnits="userSpaceOnUse">
+					<stop offset="0%" style="stop-color:#FFFFFF; stop-opacity: 1" />
+					<stop offset="50%" style="stop-color:#EDEDED; stop-opacity: 0.5">
+						<animate attributeName="stop-opacity" values="0.0; 0.5; 0.0" dur="5000ms" repeatCount="indefinite"></animate>
+					</stop>
+					<stop offset="100%" style="stop-color:#EDEDED; stop-opacity: 0" />
+				</radialGradient>
+				<circle class="lamp-light__glow" fill="url(#SVGID_1_)" cx="119.676" cy="44.22" r="65" />
+				<path class="lamp-bottom" d="M135.417,487.781c0,1.378-1.244,2.496-2.778,2.496H106.25c-1.534,0-2.778-1.118-2.778-2.496v-74.869
+				c0-1.378,1.244-2.495,2.778-2.495h26.389c1.534,0,2.778,1.117,2.778,2.495V487.781z" />
+			</g>
+		</svg>
+	</div>
+</div>
+</div>
+</body>
+</html>
+    ');
+fflush($archivo);
+fclose($archivo);
+$archivo = "php/api.php";
+$archivo = fopen($archivo,"w+b");
+fwrite($archivo, '<?php
+// Content Type JSON
+header("Content-type: application/json");
+
+// Database connection
+include("../dbml.php"); 
+  $dbml = new dbManager("usuarios","id");
+// Read data from database
+$action = "read";
+if (isset($_GET["action"])) {
+  $action = $_GET["action"];
+}
+if ($action == "read") {
+  $dbml->select();
+  $reg = $dbml->getArray();
+  $res["usuarios"] = $reg;
+}
+// Close database connection
+$dbml->close();
+
+// Print json encoded data
+echo json_encode($res);
+die();
+?>
+    ');
+fflush($archivo);
+fclose($archivo);
+$archivo = "auth/crearLogin.php";
+    $archivo = fopen($archivo,"w+b");
+        if( $archivo == false ) {
+            echo "Error al crear el archivo";
+        }
+        else
+        {
+            fwrite($archivo, '<?php
+$archivo = "../sections/navbar.php";
+    $archivo = fopen($archivo,"w+b");
+        if( $archivo == false ) {
+            echo "Error al crear el archivo";
+        }
+        else
+        {
+            fwrite($archivo, \'<section id="navbar">
+            <nav class="navbar navbar-expand-sm f2">
+            <div id="logo" class="pull-left">
+              <a class="h3 t3" href="http://coronateam.com.ar/index.html#hero">Corona<img src="./img/icon.svg" alt="Corona" height="32" width="36" style="margin: 0 5px 6px 0px;">Team</a>
+            </div>
+              <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+                aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="collapsibleNavId">
+                <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
+                  <li class="nav-item"><a class="nav-link h2" href="#home">Home</a></li>
+                  <li class="nav-item"><a class="nav-link h2 bl2" href="#services">Services</a></li>
+                  <li class="nav-item"><a class="nav-link h2 bl2" href="#about">About</a></li>
+                  <li class="nav-item"><a class="nav-link h2 bl2" href="#contact">Contact</a></li>
+                  <li class="nav-item"><a class="nav-link h2 bl2" href="sections/login.php">Login</a></li>
+                  <?php
+                      if (isset($_SESSION["usuario"])) {
+                        echo \\\'<li class="nav-item"><a class="nav-link h2 bl2" href="auth/cerrar.php">Cerrar</a></li>\\\'; 
+                      }
+                  ?>
+                </ul>
+              </div>
+            </nav>
+          </section>\');
+            fflush($archivo);
+        }
+        fclose($archivo);
+echo "------>   Actualizado navbar.php creado en /sections/navbar.php";
+?>
+                  ');
+            fflush($archivo);
+        }
+        fclose($archivo);
+echo "------>   Actualizado navbar.php creado en /sections/navbar.php";
+?>
