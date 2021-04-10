@@ -15,24 +15,33 @@
 <body>
     <header>
     </header>
-    <main>
-        <div id="app">
+    <main id="app">
+        <div class="m-4 text-center m-auto">
+            <label class="h1">{{list['name']}}</label>
+        </div>
+        <div>
             <div class="container text-center m-auto">
                 <div class="text-center">
                     <div class="m-4">
-                        <label class="h1">{{list['name']}}</label>
+                        <label class="h1">Productos</label>
+                        <div>
+                            <a href="">Empanadas</a> /
+                            <a href="">Pizzas</a>
+                        </div>
                     </div>
                     <div class="col-md-12 row">
-                        <div v-for="producto in list['productos']" class="col-md-6 mb-4">
+                        <div v-for="producto in list['productos']" class="col-md-3 mb-4">
                             <p>
-                                <!-- <img v-bind:src="img['src']" class="cp2 b4" alt=""> -->
+                                <img v-bind:src="producto['src']" class="w200 h200 img-thumbnail" alt="">
                             </p>
                             <p>
                                 <label for="" class="">{{producto['nombre']}}</label>
                             </p>
+                            <p>
+                                <label for="" class="" v-if="">{{producto['precio']}}</label>
+                            </p>
                             <p class="text-streng">
-                                <a href="" class="btn btn-success">ver</a>
-                                <a href="" class="btn btn-success">comentar</a>
+                                <a href="" class="btn btn-success">comprar</a>
                             </p>
                         </div>
                     </div>
