@@ -69,8 +69,7 @@
     <div class="col-md-12 row text-laight">
         <div class="col-md-6 row justify-content-around align-content-around" v-for="producto in list['empanadas']">
             <div class="col">
-                <img class="rounded-circle"
-                    src="https://images.deliveryhero.io/image/pedidosya/products/e3a3f7fa-6bed-4602-8deb-36d7d714c220.jpg?quality=80&amp;width=200&amp;height=150">
+                <img v-bind:src="producto['src']" class="w200 h200 rounded-circle" alt="">
             </div>
             <div class="col text-light">
                 <p class="">
