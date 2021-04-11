@@ -1,4 +1,4 @@
-<section>
+<section class="m-5">
     <div class="text-center m-autp t5">
         <p class="h3">
             OUR MENU
@@ -46,7 +46,7 @@
         </div>
     </div>
 </section>
-<section class="row col-md-12">
+<section class="row col-md-12 m-5">
     <div class="col-md-6">
         <img src="https://images.deliveryhero.io/image/pedidosya/products/e3a3f7fa-6bed-4602-8deb-36d7d714c220.jpg?quality=80&amp;width=200&amp;height=150"
             alt="" srcset="" class="w-100">
@@ -65,7 +65,7 @@
         </div>
     </div>
 </section>
-<section>
+<section class="m-5">
     <div class="col-md-12 row text-laight">
         <div class="col-md-6 row justify-content-around align-content-around" v-for="producto in list['empanadas']">
             <div class="col">
@@ -80,5 +80,8 @@
                 <p>{{producto['nombre']}}{{producto['nombre']}}</p>
             </div>
         </div>
+    </div>
+    <div class="bb5 w700 text-center m-auto m-5">
+        <br>
     </div>
 </section>

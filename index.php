@@ -20,11 +20,13 @@
             include("navbar.php");
             include ("slider.php");
             include("menu.php");
+            include("ubicacion.php");
+            include("footer.php");
         ?>
-    </main>
         <a href="">
             <img src="img/wsp.png" alt="" class="whatsapp">
         </a>
+    </main>
     <script src="js/app.js"></script>
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
