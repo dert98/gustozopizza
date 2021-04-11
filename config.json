@@ -1,13 +1,18 @@
 {
     "name": "Gustozo Pizza por metro",
     "autor": "Dert98",
-    "productos": {
-        "producto1": {
-            "src":
-                "https://images.deliveryhero.io/image/pedidosya/products/75d3c6d4-d324-41f0-aefe-366a465c621f.jpg?quality=80&amp;width=200&amp;height=150",
-            "nombre": "Pizza muzzarella con jamón",
-            "precio": "$570"
-        },
+    "redes": {
+        "Instagram":"https://www.instagram.com/gustozopizza/",
+        "Facebook": "https://www.facebook.com/GustozoPizzaporMetro/",
+        "Whatsapp": "011 3138-4881"
+    },
+    "img-url": {
+        "about":"https://preview.colorlib.com/theme/pizza/images/about.jpg",
+        "bg1": "https://preview.colorlib.com/theme/pizza/images/bg_1.jpg",
+        "bg2": "https://preview.colorlib.com/theme/pizza/images/bg_3.jpg"
+    },
+    "servicios":[ "PedidosYa","Pedidos por Whatsapp","Envío gratis","MercadoPago","Pizza por metro" ],
+    "empanadas": {
         "producto2": {
             "src":
                 "https://images.deliveryhero.io/image/pedidosya/products/e3a3f7fa-6bed-4602-8deb-36d7d714c220.jpg?quality=80&amp;width=200&amp;height=150",
@@ -56,6 +61,20 @@
             "nombre": "Empanada de carne a cuchillo",
             "precio": "$100"
         },
+        "producto12": {
+            "src":
+                "https://images.deliveryhero.io/image/pedidosya/products/93428fdd-bec4-4974-b088-75976c9d5c65.jpg?quality=80&amp;width=200&amp;height=150",
+            "nombre": "Empanada de queso roquefort",
+            "precio": "$115"
+        }
+    },
+    "pizzas": {
+        "producto1": {
+            "src":
+                "https://images.deliveryhero.io/image/pedidosya/products/75d3c6d4-d324-41f0-aefe-366a465c621f.jpg?quality=80&amp;width=200&amp;height=150",
+            "nombre": "Pizza muzzarella con jamón",
+            "precio": "$570"
+        },
         "producto10": {
             "src":
                 "https://images.deliveryhero.io/image/pedidosya/products/f52409d1-864e-476c-a628-7e3e818a3e28.jpg?quality=80&amp;width=200&amp;height=150",
@@ -67,12 +86,6 @@
                 "https://images.deliveryhero.io/image/pedidosya/products/fc3f9beb-3ea8-4607-939d-ac1760053b21.jpg?quality=80&amp;width=200&amp;height=150",
             "nombre": "Pizza muzzarella con palmitos",
             "precio": "$600"
-        },
-        "producto12": {
-            "src":
-                "https://images.deliveryhero.io/image/pedidosya/products/93428fdd-bec4-4974-b088-75976c9d5c65.jpg?quality=80&amp;width=200&amp;height=150",
-            "nombre": "Empanada de queso roquefort",
-            "precio": "$115"
         },
         "producto13": {
             "src":
