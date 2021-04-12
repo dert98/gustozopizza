@@ -1,5 +1,4 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand h2" href="#">{{list['name']}}</a>
     <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
         aria-expanded="false" aria-label="Toggle navigation"></button>
     <div class="collapse navbar-collapse" id="collapsibleNavId">
@@ -11,10 +10,13 @@
                 <a class="nav-link t5 bl5 h3" href="#">Menu</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link t5 bl5 h3" href="#">Nosotros</a>
+                <a class="nav-link t5 bl5 h3" href="#">Ubicacion</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link t5 bl5 h3" href="#">Ubicacion</a>
+                <a class="nav-link t5 bl5 h3" href="#">Redes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link t5 bl5 h3" href="#">Login</a>
             </li>
         </ul>
     </div>

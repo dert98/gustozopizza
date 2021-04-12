@@ -22,7 +22,7 @@
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo, sequi! Autem.
         </div>
     </div>
-    <div class="bb5 w700 text-center m-auto m-5">
+    <div class="bb5 text-center m-auto m-5">
         <br>
     </div>
 </section>
